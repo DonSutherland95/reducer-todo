@@ -4,6 +4,7 @@ import Todo from "../components/Todo"
 export default function TodoList(props) {
     const handleClick = () => {
         props.handleClearItems();
+        // console.log(props.handleClearItems())
     }
     return (
         <div>
@@ -13,7 +14,7 @@ export default function TodoList(props) {
                 (
                 <Todo item={item} handleToggleItem={props.handleToggleItem}  />
             ))}</p>
-            <button onclick={handleClick}>Clear Completed Todos</button>
+            <button onClick={handleClick}>Clear Completed Todos</button>
         </div>
     )
 }

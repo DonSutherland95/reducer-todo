@@ -17,7 +17,8 @@ export default function App() {
     dispatch(actions.toggleTodo(itemId))
   }
   const clearItems = () =>{
-    dispatch(actions.clearTodo)
+    // console.log("from app")
+    dispatch(actions.clearTodo())
   }
 
   return (
