@@ -1,4 +1,4 @@
-import {ADD_TODO, TOGGLE_TODO, CLEAR_COMPLETED} from "../actions/TodoActions"
+import {ADD_TODO, TOGGLE_TODO, CLEAR_TODO} from "../actions/TodoActions"
 
 export const initialState = [
     {
@@ -17,13 +17,23 @@ export const reducer = (state, action) =>{
                 completed: false,
                 id: Date.now()
             }
-            // return [
-            //     ...state, newTodo, console.log(state)
-            // ]
             return [
                 ...state, newTodo
             ]
-            
+        case TOGGLE_TODO:
+            return state.map((item)=>{
+                    if(action.payload === item.id ){
+                        // console.log(action.payload, item.id)
+                    return {
+                        ...item, completed: !item.completed
+                    } 
+                } else {
+                    return item
+                }
+            })
+        case CLEAR_TODO:
+            return state.filter(item=>!item.completed)
+
         default:
             return(state)
     }

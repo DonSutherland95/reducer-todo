@@ -11,11 +11,21 @@ export default function App() {
     dispatch(actions.addTodo(todo))
     // console.log(todo)
   }
-  
+  const handleToggleItem = (itemId)=>{
+    // console.log(actions.toggleTodo(itemId))
+    // console.log()
+    dispatch(actions.toggleTodo(itemId))
+  }
+  const clearItems = () =>{
+    dispatch(actions.clearTodo)
+  }
+
   return (
     <div>
-      <TodoList listItems={state} />
+      <h1>Todo List</h1>
       <TodoForm handleAddTodo={addItem}/>
+      <TodoList listItems={state} handleToggleItem={handleToggleItem} handleClearItems={clearItems} />
+      
     </div>
   )
 }
